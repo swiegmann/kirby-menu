@@ -1,0 +1,56 @@
+type: structure
+
+label: menu.field.label
+
+columns:
+  display_name:
+    width: 9/12
+  internal_key:
+    width: 3/12
+
+validate:
+  menuKeyUnique: internal_key
+
+fields:
+  visibility:
+    extends: fields/menu-visibility
+    help: false
+
+  display_name:
+    type: text
+    counter: false
+    icon: info
+    label: menu.fields.display_name.label
+    placeholder: menu.fields.display_name.placeholder
+    help: menu.fields.display_name.help
+    width: 1/2
+    required: true
+    
+  internal_key:
+    type: slug
+    counter: false
+    icon: key
+    label: menu.fields.internal_key.label
+    placeholder: menu.fields.internal_key.placeholder
+    help: menu.fields.internal_key.help
+    width: 1/2
+    required: true
+
+  list_tag:
+    extends: fields/menu-list-tag
+
+  list_entry_tag:
+    extends: fields/menu-list-entry-tag
+
+  active_page_attr:
+    extends: fields/menu-active-page-attr
+
+  active_desc_page_attr:
+    extends: fields/menu-active-desc-page-attr
+
+  attrs:
+    extends: fields/menu-attrs
+
+  entries:
+    extends: fields/menu-entries
+    required: true

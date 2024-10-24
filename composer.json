@@ -1,0 +1,23 @@
+{
+  "name": "swiegmann/kirby-menu",
+  "description": "This Kirby CMS-Plugin lets you build and render structured menues with a variety of features.",
+  "license": "MIT",
+  "version": "1.0.0",
+  "homepage": "https://github.com/swiegmann/kirby-menu",
+  "type": "kirby-plugin",
+  "keywords": [
+    "kirby",
+    "kirby-cms",
+    "kirby-plugin"
+  ],
+  "authors": [{
+    "name": "S.Wiegmann"
+  }],
+  "require": {
+    "php": ">=8.3.8",
+    "getkirby/composer-installer": "^1.2"
+  },
+  "require-dev": {
+    "getkirby/cms": "^4.3"
+  }  
+}

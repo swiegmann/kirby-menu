@@ -1,0 +1,13 @@
+type: slug
+
+counter: false
+
+label: menu.fields.active_page_attr.label
+
+icon: code
+
+placeholder: "{{ kirby.option('swiegmann.menu.activePageAttr') }}"
+
+help: menu.fields.active_page_attr.help
+
+width: 1/2

@@ -1,0 +1,12 @@
+# to extend default block tabs with your own tabs:
+# - copy this file to /site/blueprints/blocks
+# - add your own tabs
+
+name: menu.block.name
+
+icon: menu
+
+tabs:
+  main: tabs/menu  
+  # yourtab1: ...
+

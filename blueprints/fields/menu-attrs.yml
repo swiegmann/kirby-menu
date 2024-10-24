@@ -1,0 +1,31 @@
+type: structure
+
+label: menu.fields.attrs.label
+
+columns:
+  name:
+    width: 1/2
+  value:
+    width: 1/2
+
+sortBy: name asc
+
+validate:
+  menuKeyUnique: name
+
+fields:
+  name:
+    type: slug
+    counter: false
+    icon: key
+    label: menu.fields.attrs.fields.name.label
+    placeholder: menu.fields.attrs.fields.name.placeholder
+    width: 1/2
+    required: true
+  
+  value:
+    type: text
+    counter: false
+    icon: code
+    label: menu.fields.attrs.fields.value.label
+    width: 1/2

@@ -1,0 +1,11 @@
+type: slug
+
+counter: false
+
+label: menu.fields.list_tag.label
+
+icon: code
+
+placeholder: "{{ kirby.option('swiegmann.menu.listTag') }}"
+
+width: 1/2

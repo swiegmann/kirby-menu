@@ -1,0 +1,26 @@
+label: menu.block.tab.main.label
+
+fields:
+  visibility:
+    extends: fields/menu-visibility
+    help: false
+    required: true
+
+  list_tag:
+    extends: fields/menu-list-tag
+
+  list_entry_tag:
+    extends: fields/menu-list-entry-tag
+
+  active_page_attr:
+    extends: fields/menu-active-page-attr
+
+  active_desc_page_attr:
+    extends: fields/menu-active-desc-page-attr
+
+  attrs:
+    extends: fields/menu-attrs
+
+  entries:
+    required: true
+    extends: fields/menu-entries
