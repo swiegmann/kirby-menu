@@ -91,7 +91,7 @@ Kirby::plugin('swiegmann/menu', [
 
 			$listEntryTag = ($value = $rootEntry->content()->get('list_entry_tag')->value())
 				? $value
-				: kirby()->option('swiegmann.menu.listEntryTag', 'ul');
+				: kirby()->option('swiegmann.menu.listEntryTag', 'li');
 
 			$activePageCssClass = ($value = $rootEntry->content()->get('active_page_css_class')->value())
 				? $value
