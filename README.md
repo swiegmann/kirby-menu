@@ -6,7 +6,7 @@ This [Kirby CMS](https://www.getkirby.com)-Plugin lets you build and render stru
 
 * Custom deepness
 * Custom HTML-Tags for root- & child-nodes
-* Custom HTML-Attributes for active- & descendant nodes
+* Custom CSS-Classes for active- & descendant nodes
 * Custom HTML-Attributes/Values for each node
 * Custom user-roles for displaying each node
   * Custom default roles for new nodes
@@ -69,25 +69,15 @@ composer require swiegmann/kirby-menu
 3. The generic Kirby-Method to render the menu in your snippet is:
    
    ```php
-   echo $site->menu($src->get('yourfieldname'), 'yourmenukey');
+   echo $site->menu($field, 'yourmenukey');
    ```
    
-   ... where `$src` is the source-blueprint of your field, e.g. `$site` or `$page`.
-   
-   Examples:
-   
-   ```php
-   <!-- field added to site-blueprint -->
-   <?= $site->menu($site->content()->get('yourfieldname'), 'yourmenukey') ?>
-   
-   <!-- field added to a page-blueprint -->
-   <?= $site->menu($page->content()->get('yourfieldname'), 'yourmenukey') ?>
-   ```
+   ... where `$field` is of type `Kirby\Content\Field`.
    
    In my setup I have added the field `menues` to site.yml and created an entry with the internal key `meta`. This is how the part in my header-snippet looks like:
    
    ```php
-   <?= $site->menu($site->get('menues'), 'meta') ?>
+   <?= $site->menu($site->content()->get('menues'), 'meta') ?>
    ```
 
 ### Block
@@ -96,7 +86,7 @@ composer require swiegmann/kirby-menu
    
    ```yaml
    fields:
-     text:
+     yourfieldname:
        type: blocks
        fieldsets:
          - menu
@@ -138,6 +128,7 @@ return [
   'swiegmann.menu' => [
     'activeDescPageCssClass' => 'active-desc',
     'activePageCssClass' => 'active',
+    'deepness' => '3',
     'defaultRoleKeys' => [],
     'listEntryTag' => 'li',
     'listTag' => 'ul',
