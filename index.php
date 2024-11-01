@@ -3,8 +3,8 @@
 
 Kirby::plugin('swiegmann/menu', [
 	'options' => [
-		'activeDescPageAttr' => 'aria-activedescendant',
-		'activePageAttr' => 'aria-current',
+		'activeDescPageCssClass' => 'active-desc',
+		'activePageCssClass' => 'active',
 		'deepness' => 3,
 		'defaultRoleKeys' => [],
 		'listEntryTag' => 'li',
@@ -20,8 +20,8 @@ Kirby::plugin('swiegmann/menu', [
 		'fields/menu-entries' => function(&$kirby) {
 			return include __DIR__ . '/blueprints/fields/menu-entries.php';
 		},
-		'fields/menu-active-page-attr' => __DIR__ . '/blueprints/fields/menu-active-page-attr.yml',
-		'fields/menu-active-desc-page-attr' => __DIR__ . '/blueprints/fields/menu-active-desc-page-attr.yml',
+		'fields/menu-active-page-css-class' => __DIR__ . '/blueprints/fields/menu-active-page-css-class.yml',
+		'fields/menu-active-desc-page-css-class' => __DIR__ . '/blueprints/fields/menu-active-desc-page-css-class.yml',
 		'fields/menu-attrs' => __DIR__ . '/blueprints/fields/menu-attrs.yml',
 		'fields/menu-list-tag' => __DIR__ . '/blueprints/fields/menu-list-tag.yml',
 		'fields/menu-list-entry-tag' => __DIR__ . '/blueprints/fields/menu-list-entry-tag.yml',
@@ -93,13 +93,13 @@ Kirby::plugin('swiegmann/menu', [
 				? $value
 				: kirby()->option('swiegmann.menu.listEntryTag', 'ul');
 
-			$activePageAttr = ($value = $rootEntry->content()->get('active_page_attr')->value())
+			$activePageCssClass = ($value = $rootEntry->content()->get('active_page_css_class')->value())
 				? $value
-				: kirby()->option('swiegmann.menu.activePageAttr', '');
+				: kirby()->option('swiegmann.menu.activePageCssClass', '');
 
-			$activeDescPageAttr = ($value = $rootEntry->content()->get('active_desc_page_attr')->value())
+			$activeDescPageCssClass = ($value = $rootEntry->content()->get('active_desc_page_css_class')->value())
 				? $value
-				: kirby()->option('swiegmann.menu.activeDescPageAttr', '');			
+				: kirby()->option('swiegmann.menu.activeDescPageCssClass', '');		
 
 			// generate children html
 			$childEntriesHtml = '';
@@ -110,8 +110,8 @@ Kirby::plugin('swiegmann/menu', [
 					entry: $childEntry,
 					listTag: $listTag,
 					listEntryTag: $listEntryTag,
-					activePageAttr: $activePageAttr,
-					activeDescPageAttr: $activeDescPageAttr
+					activePageCssClass: $activePageCssClass,
+					activeDescPageCssClass: $activeDescPageCssClass
 				);
 			}
 			
@@ -143,12 +143,12 @@ Kirby::plugin('swiegmann/menu', [
 		 * @param Kirby\Cms\StructureObject	$entry
 		 * @param string $listTag	Root HTML-Tag of child-entries
 		 * @param string $listEntryTag	HTML-Tag of the entry
-		 * @param string $activePageAttr	HTML-Attribute applied to the current Kirby-Page
-		 * @param string $activeDescPageAttr	HTML-Attribute applied to Structure-Parents of the current Kirby-Page
+		 * @param string $activePageCssClass	CSS-Class applied to the current Kirby-Page
+		 * @param string $activeDescPageCssClass	CSS-Class applied to Structure-Parents of the current Kirby-Page
 		 * 
 		 * @return string
 		 */
-		'_menuEntry' => function(Kirby\Cms\StructureObject $entry, string $listTag, string $listEntryTag, string $activePageAttr, string $activeDescPageAttr): string
+		'_menuEntry' => function(Kirby\Cms\StructureObject $entry, string $listTag, string $listEntryTag, string $activePageCssClass, string $activeDescPageCssClass): string
 		{
 			if (!$this->_menuUserHasRole($entry->content()->get('visibility')->split())) {
 				return '';
@@ -228,10 +228,20 @@ Kirby::plugin('swiegmann/menu', [
 			foreach($attrs as &$attr) {
 				$convertedAttrs[$attr['name']] = strlen($attr['value']) ? $attr['value'] : true;
 			}
-			
-			$convertedAttrs[$activePageAttr] = $activePageAttr && $page && $page->isActive();
-			$convertedAttrs[$activeDescPageAttr] = $activeDescPageAttr && $page && !$page->isActive() && $page->isOpen();
-			
+
+			// build attributes: add $activeDescPageCssClass & $activePageCssClass to 'class'-attribute
+			if ($activeDescPageCssClass && $page && !$page->isActive() && $page->isOpen()) {
+				$convertedAttrs['class'] = $convertedAttrs['class'] ?? '';
+				if (!in_array($activeDescPageCssClass, explode(' ', $convertedAttrs['class']))) {
+					$convertedAttrs['class'] = trim($convertedAttrs['class'] .' '. $activeDescPageCssClass);
+				}
+			} else if ($activePageCssClass && $page && $page->isActive()) {
+				$convertedAttrs['class'] = $convertedAttrs['class'] ?? '';
+				if (!in_array($activePageCssClass, explode(' ', $convertedAttrs['class']))) {
+					$convertedAttrs['class'] = trim($convertedAttrs['class'] .' '. $activePageCssClass);
+				}
+			}
+
 			$attrsHtml = Html::attr($convertedAttrs, false, ' ');
 
 
@@ -244,8 +254,8 @@ Kirby::plugin('swiegmann/menu', [
 					entry: $childEntry,
 					listTag: $listTag,
 					listEntryTag: $listEntryTag,
-					activePageAttr: $activePageAttr,
-					activeDescPageAttr: $activeDescPageAttr
+					activePageCssClass: $activePageCssClass,
+					activeDescPageCssClass: $activeDescPageCssClass
 				);
 			}
 

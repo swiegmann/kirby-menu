@@ -31,11 +31,11 @@ return [
 
 	'menu.fields.list_entry_tag.label' => 'HTML-Tag: Eintrag',
 
-	'menu.fields.active_page_attr.label' => 'HTML-Attribut: Aktive Seite',
-	'menu.fields.active_page_attr.help' => 'Die aktive interne Seite erhält diese HTML-Attribut.',
+	'menu.fields.active_page_css_class.label' => 'CSS-Klasse: Aktive Seite',
+	'menu.fields.active_page_css_class.help' => 'Das HTML-Tag der aktiven internen Seite erhält diese CSS-Klasse.',
 
-	'menu.fields.active_desc_page_attr.label' => 'HTML-Attribut: Übergeordnete aktive Seite',
-	'menu.fields.active_desc_page_attr.help' => 'Alle übergeordneten Seiten der internen aktiven Seite bekommen dieses HTML-Attribut.',
+	'menu.fields.active_desc_page_css_class.label' => 'CSS-Klasse: Übergeordnete aktive Seite',
+	'menu.fields.active_desc_page_css_class.help' => 'Alle HTML-Tags von übergeordneten Seiten der internen aktiven Seite erhalten diese CSS-Klasse.',
 
 	'menu.fields.entries.label' => 'Einträge',
 

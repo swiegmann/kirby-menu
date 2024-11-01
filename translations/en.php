@@ -31,11 +31,11 @@ return [
 
 	'menu.fields.list_entry_tag.label' => 'HTML Tag: Entry',
 
-	'menu.fields.active_page_attr.label' => 'HTML Attribute: Active Page',
-	'menu.fields.active_page_attr.help' => 'The active internal page receives this HTML attribute.',
+	'menu.fields.active_page_css_class.label' => 'CSS-Class: Active Page',
+	'menu.fields.active_page_css_class.help' => 'The HTML-Tag of the active internal page receives this CSS-Class.',
 
-	'menu.fields.active_desc_page_attr.label' => 'HTML Attribute: Parent Active Page',
-	'menu.fields.active_desc_page_attr.help' => 'All parent pages of the active internal page receive this HTML attribute.',
+	'menu.fields.active_desc_page_css_class.label' => 'CSS-Class: Parent Active Page',
+	'menu.fields.active_desc_page_css_class.help' => 'All parent pages HTML-Tags of the active internal page receive this CSS-Class.',
 
 	'menu.fields.entries.label' => 'Entries',
 	'menu.fields.link.label' => 'Link',

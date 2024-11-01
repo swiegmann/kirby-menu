@@ -112,10 +112,10 @@ composer require swiegmann/kirby-menu
   <li>
     <a href="https://domain.com">Home</a>
   </li>
-  <li aria-activedescendant>
+  <li class="active-desc">
     <a href="https://domain.com/news">News</a>
     <ul>
-      <li aria-current>
+      <li class="active">
         <a href="https://domain.com/news/technology">Technology</a>
       </li>
       <li id="meta-culture">
@@ -136,8 +136,8 @@ Configure global settings in your `config.php` file:
 ```php
 return [
   'swiegmann.menu' => [
-    'activeDescPageAttr' => 'aria-activedescendant',
-    'activePageAttr' => 'aria-current',
+    'activeDescPageCssClass' => 'active-desc',
+    'activePageCssClass' => 'active',
     'defaultRoleKeys' => [],
     'listEntryTag' => 'li',
     'listTag' => 'ul',
@@ -146,15 +146,15 @@ return [
 ];
 ```
 
-| Option               | Default                 | Type    | Description                                                                                                          |
-| -------------------- | ----------------------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
-| `activeDescPageAttr` | `aria-activedescendant` | String  | HTML-Attribute for nodes of active child-nodes                                                                       |
-| `activePageAttr`     | `aria-current`          | String  | HTML-Attribute for active nodes                                                                                      |
-| `deepness`           | `3`                     | Integer | maximum deepness                                                                                                     |
-| `defaultRoleKeys`    | `[]`                    | Array   | List of (user-) role-keys that get default view-privilegues, e.g. `['admin', editor', 'visitor']`. Empty = all roles |
-| `listEntryTag`       | `li`                    | String  | HTML-Tag for a node                                                                                                  |
-| `listTag`            | `ul`                    | String  | HTML-Tag for (level-) roots                                                                                          |
-| `visitorRoleKey`     | `visitor`               | String  | Role-key of visitors. Can be either a Kirby role-key (if you created a visitor-role in your setup) or another string |
+| Option                   | Default       | Type    | Description                                                                                                          |
+| ------------------------ | ------------- | ------- | -------------------------------------------------------------------------------------------------------------------- |
+| `activeDescPageCssClass` | `active-desc` | String  | CSS-Class for nodes of active child-nodes                                                                            |
+| `activePageCssClass`     | `active`      | String  | CSS-Class for active nodes                                                                                           |
+| `deepness`               | `3`           | Integer | maximum deepness                                                                                                     |
+| `defaultRoleKeys`        | `[]`          | Array   | List of (user-) role-keys that get default view-privilegues, e.g. `['admin', editor', 'visitor']`. Empty = all roles |
+| `listEntryTag`           | `li`          | String  | HTML-Tag for a node                                                                                                  |
+| `listTag`                | `ul`          | String  | HTML-Tag for (level-) roots                                                                                          |
+| `visitorRoleKey`         | `visitor`     | String  | Role-key of visitors. Can be either a Kirby role-key (if you created a visitor-role in your setup) or another string |
 
 ## Customize snippets
 

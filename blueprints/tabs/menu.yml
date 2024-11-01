@@ -12,11 +12,11 @@ fields:
   list_entry_tag:
     extends: fields/menu-list-entry-tag
 
-  active_page_attr:
-    extends: fields/menu-active-page-attr
+  active_page_css_class:
+    extends: fields/menu-active-page-css-class
 
-  active_desc_page_attr:
-    extends: fields/menu-active-desc-page-attr
+  active_desc_page_css_class:
+    extends: fields/menu-active-desc-page-css-class
 
   attrs:
     extends: fields/menu-attrs

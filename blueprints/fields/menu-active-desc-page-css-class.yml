@@ -1,0 +1,13 @@
+type: slug
+
+counter: false
+
+label: menu.fields.active_desc_page_css_class.label
+
+icon: code
+
+placeholder: "{{ kirby.option('swiegmann.menu.activeDescPageCssClass') }}"
+
+help: menu.fields.active_desc_page_css_class.help
+
+width: 1/2
