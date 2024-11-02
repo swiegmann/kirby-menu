@@ -1,5 +1,10 @@
 # Kirby Menu
 
+## 1.0.2
+
+- Added the ARIA-Attribute & value `aria-current="page"` to the link-tag of the active page
+  - Added the variable `$linkAttrs` in snippet `/snippets/menu-entry.php`
+
 ## 1.0.1
 
 - **BREAKING:** Replaced wrong usage of ARIA-Attributes with CSS-Classes.

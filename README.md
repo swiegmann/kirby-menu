@@ -106,7 +106,7 @@ composer require swiegmann/kirby-menu
     <a href="https://domain.com/news">News</a>
     <ul>
       <li class="active">
-        <a href="https://domain.com/news/technology">Technology</a>
+        <a href="https://domain.com/news/technology" aria-current="page">Technology</a>
       </li>
       <li id="meta-culture">
         <a href="https://domain.comn/news/culture">Culture</a>

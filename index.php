@@ -223,19 +223,22 @@ Kirby::plugin('swiegmann/menu', [
 			
 			
 			// build attributes
-			$convertedAttrs = [];
+			$linkAttrs = [];
+
 			$attrs = $entry->content()->get('attrs')->yaml();
+			$convertedAttrs = [];
 			foreach($attrs as &$attr) {
 				$convertedAttrs[$attr['name']] = strlen($attr['value']) ? $attr['value'] : true;
 			}
 
-			// build attributes: add $activeDescPageCssClass & $activePageCssClass to 'class'-attribute
+			// build attributes: add $activeDescPageCssClass, $activePageCssClass & aria-current
 			if ($activeDescPageCssClass && $page && !$page->isActive() && $page->isOpen()) {
 				$convertedAttrs['class'] = $convertedAttrs['class'] ?? '';
 				if (!in_array($activeDescPageCssClass, explode(' ', $convertedAttrs['class']))) {
 					$convertedAttrs['class'] = trim($convertedAttrs['class'] .' '. $activeDescPageCssClass);
 				}
 			} else if ($activePageCssClass && $page && $page->isActive()) {
+				$linkAttrs['aria-current'] = 'page';
 				$convertedAttrs['class'] = $convertedAttrs['class'] ?? '';
 				if (!in_array($activePageCssClass, explode(' ', $convertedAttrs['class']))) {
 					$convertedAttrs['class'] = trim($convertedAttrs['class'] .' '. $activePageCssClass);
@@ -243,6 +246,7 @@ Kirby::plugin('swiegmann/menu', [
 			}
 
 			$attrsHtml = Html::attr($convertedAttrs, false, ' ');
+			$linkAttrsHtml = Html::attr($linkAttrs, false, ' ');
 
 
 			// add children
@@ -263,6 +267,7 @@ Kirby::plugin('swiegmann/menu', [
 			return snippet('menu-entry', [
 				'attrs' => $attrsHtml,
 				'entriesHtml' => $childEntriesHtml,
+				'linkAttrs' => $linkAttrsHtml,
 				'listTag' => $listTag,
 				'listEntryTag' => $listEntryTag,
 				'url' => $url,
