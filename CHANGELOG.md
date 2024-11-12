@@ -1,5 +1,10 @@
 # Kirby Menu
 
+## 1.0.3
+
+- Fix PHP version (thanks [@bogdancondorachi](https://github.com/bogdancondorachi)) 
+- Improve dev structure (thanks [@bogdancondorachi](https://github.com/bogdancondorachi)) 
+
 ## 1.0.2
 
 - Added the ARIA-Attribute & value `aria-current="page"` to the link-tag of the active page

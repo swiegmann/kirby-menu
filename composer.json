@@ -3,7 +3,7 @@
     "description": "This Kirby CMS-Plugin lets you build and render structured menues with a variety of features.",
     "license": "MIT",
     "type": "kirby-plugin",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "homepage": "https://github.com/swiegmann/kirby-menu",
     "keywords": [
         "kirby-plugin",
