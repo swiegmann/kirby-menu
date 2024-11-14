@@ -20,8 +20,8 @@ This [Kirby CMS](https://www.getkirby.com)-Plugin lets you build and render stru
 * English
 * German
 
-<a href="kirby-menu.png">
-    <img src="kirby-menu.png" align="center" alt="Block preview">
+<a href="./.github/kirby-menu.png">
+    <img src="./.github/kirby-menu.png" align="center" alt="Block preview">
 </a>
 
 ## Prerequisites
