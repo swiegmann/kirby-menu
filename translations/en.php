@@ -43,6 +43,9 @@ return [
 	'menu.fields.title.label' => 'Title',
 	'menu.fields.title.placeholder' => 'Override link text with...',
 
+	'menu.fields.url_suffix.label' => 'URL-Suffix',
+	'menu.fields.url_suffix.placeholder' => 'Parameters or hashes to append to the URL',
+
 	'menu.fields.attrs.label' => 'HTML Attributes',
 	'menu.fields.attrs.fields.name.label' => 'Name',
 	'menu.fields.attrs.fields.name.placeholder' => 'e.g.: class, style',

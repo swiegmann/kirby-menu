@@ -11,8 +11,12 @@ $field = [
 
   'columns' => [
     'link' => [
-      'width' => '1/1',
-      'mobile' => true
+      'width' => '3/4',
+      'mobile' => true,
+    ],
+    'url_suffix' => [
+      'width' => '1/4',
+      'mobile' => true,
     ]
   ],
 
@@ -42,6 +46,13 @@ $field = [
       'type' => 'text',
       'label' => t('menu.fields.title.label'),
       'placeholder' => t('menu.fields.title.placeholder'),
+      'counter' => false
+    ],
+
+    'url_suffix' => [
+      'type' => 'text',
+      'label' => t('menu.fields.url_suffix.label'),
+      'placeholder' => t('menu.fields.url_suffix.placeholder'),
       'counter' => false
     ],
 

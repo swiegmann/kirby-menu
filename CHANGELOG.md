@@ -1,5 +1,9 @@
 # Kirby Menu
 
+## 1.0.4
+
+- Added field "URL-Suffix" to menu-entries. Will be appended to the generated link to support queries & hashes
+
 ## 1.0.3
 
 - Fix PHP version (thanks [@bogdancondorachi](https://github.com/bogdancondorachi)) 

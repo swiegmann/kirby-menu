@@ -214,6 +214,12 @@ Kirby::plugin('swiegmann/menu', [
 			if (!strlen($title) || !$url) {
 				return '';
 			}
+
+
+			// url-suffix
+			if (($s = $entry->content()->get('url_suffix')->value()) && strlen($s)) {
+				$url .= $s;
+			}
 			
 			
 			// overwrite title

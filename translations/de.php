@@ -44,6 +44,9 @@ return [
 	'menu.fields.title.label' => 'Titel',
 	'menu.fields.title.placeholder' => 'Text der Verknüpfung überschreiben mit...',
 
+	'menu.fields.url_suffix.label' => 'URL-Suffix',
+	'menu.fields.url_suffix.placeholder' => 'URL-Parameter oder Hashes, die an die URL gehängt werden',
+
 	'menu.fields.attrs.label' => 'HTML-Attribute',
 	'menu.fields.attrs.fields.name.label' => 'Name',
 	'menu.fields.attrs.fields.name.placeholder' => 'z.B.: class, style',
