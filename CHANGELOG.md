@@ -1,5 +1,9 @@
 # Kirby Menu
 
+## 1.0.5
+
+- fix PHP 8.4 deprecation (nullable types) (thanks [@tasinttttttt](https://github.com/tasinttttttt))
+
 ## 1.0.4
 
 - Added field "URL-Suffix" to menu-entries. Will be appended to the generated link to support queries & hashes
