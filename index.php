@@ -57,7 +57,7 @@ Kirby::plugin('swiegmann/menu', [
 		 * 
 		 * @return string
 		 */
-		'menu' => function(Kirby\Cms\Block|Kirby\Content\Field $source, string $internalKey = null): string
+		'menu' => function(Kirby\Cms\Block|Kirby\Content\Field $source, ?string $internalKey = null): string
 		{
 			$rootEntry = false;
 
